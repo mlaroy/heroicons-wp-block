@@ -8,7 +8,11 @@
 	"icon": "shield",
 	"description": "An SVG from Hericons",
 	"supports": {
-		"html": false
+		"html": false,
+		"align": true,
+		"color": true,
+		"anchor": true,
+		"backgroundColor": true
 	},
 	"textdomain": "mike-heroicons",
 	"editorScript": "file:./index.js",

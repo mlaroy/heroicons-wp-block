@@ -9,9 +9,13 @@
 	.components-button svg {
 		fill: none;
 	}
+
+
 }
 
 .wp-block-mikelaroy-heroicons {
+	display: flex;
+
 	.components-button svg {
 		fill: none;
 	}
@@ -19,13 +23,27 @@
 		box-shadow: none;
 		padding: 20px 10px;
 
-
 		&:hover {
 			box-shadow: none;
 			border: none;
 			outline: none;
 			background: #eee;
 		}
+	}
+
+	&.aligncenter {
+		display: flex;
+		justify-content: center;
+	}
+
+	&.alignright {
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	&.alignleft {
+		display: flex;
+		justify-content: flex-start;
 	}
 }
 
