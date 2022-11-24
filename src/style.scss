@@ -15,10 +15,16 @@
 
 .wp-block-mikelaroy-heroicons {
 	display: flex;
+	color: #1a4548;
+
+	.components-button {
+		color: inherit;
+	}
 
 	.components-button svg {
 		fill: none;
 	}
+
 	.components-button.is-secondary {
 		box-shadow: none;
 		padding: 20px 10px;
