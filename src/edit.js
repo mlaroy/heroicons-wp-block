@@ -115,23 +115,27 @@ export default function Edit({ attributes: { svg, style }, setAttributes }) {
 					<div className="icons-grid">
 						{filteredIcons().map(icon => {
 							return (
-								<Button
-									variant="tertiary"
-									onClick={() => {
-										onChangeSelectedIcon(icon)
-										setOpen(false)
-									}}
-									key={icon.name}
-								>
-									<Flex align="center" justify="center" direction="column">
-										<FlexItem>
-											<span dangerouslySetInnerHTML={{__html: icon.svg}}></span>
-										</FlexItem>
-										<FlexItem>
-											<p>{icon.name}</p>
-										</FlexItem>
-									</Flex>
-								</Button>
+								<div className="heroicon-container">
+									<div className="heroicon-button-container">
+										<Button
+											variant="tertiary"
+											onClick={() => {
+												onChangeSelectedIcon(icon)
+												setOpen(false)
+											}}
+											key={icon.name}
+										>
+											<Flex align="center" justify="center" direction="column">
+												<FlexItem>
+													<span dangerouslySetInnerHTML={{__html: icon.svg}}></span>
+												</FlexItem>
+											</Flex>
+										</Button>
+									</div>
+									<div>
+										<p>{icon.name}</p>
+									</div>
+								</div>
 							);
 						})}
 					</div>
