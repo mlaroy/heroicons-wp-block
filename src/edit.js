@@ -6,7 +6,7 @@
 import { __ } from '@wordpress/i18n';
 
 import { Button, Modal, Flex, FlexItem, RadioControl, SearchControl } from '@wordpress/components';
-import { useState, useEffect } from '@wordpress/element';
+import { useState, useEffect, useRef } from '@wordpress/element';
 import { matchSorter } from 'match-sorter'
 
 import { tags } from './tags.js'
@@ -42,6 +42,14 @@ export default function Edit({ attributes: { svg, style }, setAttributes }) {
 	const [ isOpen, setOpen ] = useState( false );
 	const [ searchTerm, setSearchTerm ] = useState('');
 	const [ selectedIcon, setSelectedIcon ] = useState(null);
+	const searchEl = useRef(null);
+
+	const openModal = () => {
+		setOpen(true);
+		setTimeout(() => {
+			searchEl.current.focus()
+		}, 500);
+	}
 
 	useEffect(() => {
 		setAttributes( { style: style ? style : 'solid' } );
@@ -79,14 +87,14 @@ export default function Edit({ attributes: { svg, style }, setAttributes }) {
 				<Button
 					label="Change icon"
 					variant="secondary"
-					onClick={ () => setOpen( true ) }
+					onClick={openModal}
 					showTooltip={true}
 					>
 					<span id="selected-icon" dangerouslySetInnerHTML={{ __html: svg }}></span>
 				</Button>
 			)}
 
-			{!svg && <Button variant="primary" onClick={ () => setOpen( true ) }>
+			{!svg && <Button variant="primary" onClick={openModal}>
 				{ __( 'Choose Icon', 'heroicons' ) }
             </Button>}
             { isOpen && (
@@ -94,6 +102,7 @@ export default function Edit({ attributes: { svg, style }, setAttributes }) {
 					<Flex align="center" justify="flex-start" gap="2rem">
 						<FlexItem>
 							<SearchControl
+								ref={searchEl}
 								value={ searchTerm }
 								onChange={ setSearchTerm }
 							/>
