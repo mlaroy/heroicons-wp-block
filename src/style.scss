@@ -1,0 +1,76 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-heroicon-heroicons {
+	.components-button svg {
+		fill: none;
+	}
+}
+
+.wp-block-mikelaroy-heroicons {
+	.components-button svg {
+		fill: none;
+	}
+	.components-button.is-secondary {
+		box-shadow: none;
+		padding: 20px 10px;
+
+
+		&:hover {
+			box-shadow: none;
+			border: none;
+			outline: none;
+			background: #eee;
+		}
+	}
+}
+
+.heroicons-modal {
+	.components-radio-control .components-flex {
+		flex-direction: row;
+		gap: 1rem;
+	}
+}
+
+.icons-grid {
+	display: grid;
+	gap: 12px;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	width: clamp(320px, 100%, 1400px);
+	margin: 3rem auto 0;
+
+	.components-button {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		aspect-ratio: 1/1;
+		width: 200px;
+		height: 200px;
+		border: 1px solid #eee;
+		border-radius: 4px;
+		background: #fff;
+		color: #333;
+		font-size: 1.5rem;
+		text-decoration: none;
+		transition: all 0.2s ease-in-out;
+
+		&:hover {
+			background: #fafafa;
+			border-color: #eee;
+		}
+	}
+	svg {
+		fill: none;
+	}
+}
+
+
+
+#selected-icon {
+	display: inline-block;
+	width: 48px;
+}

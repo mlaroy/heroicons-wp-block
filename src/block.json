@@ -1,0 +1,32 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "mikelaroy/heroicons",
+	"version": "0.1.0",
+	"title": "Hero Icon",
+	"category": "common",
+	"icon": "shield",
+	"description": "An SVG from Hericons",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "mike-heroicons",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"attributes": {
+		"svg": {
+		  "type" : "string"
+		},
+		"style": {
+			"type" : "string"
+		}
+	},
+	"example": {
+		"attributes":{
+		  "svg": "clipboard-document",
+		  "style": "solid"
+		}
+	}
+}
