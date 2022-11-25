@@ -1,4 +1,4 @@
-# Heroicons Block for WordPress
+# Heroincons for Gutenberg
 
 Select a Heroicons SVG right in the block editor.
 
@@ -6,8 +6,13 @@ Based on [Heroicons](https://github.com/tailwindlabs/heroicons) version 2.0.13, 
 
 Shout out to [Joey Faruggio](https://github.com/joseph-farruggio) for the inspiration  and collaboration.
 
-## Usage
+![WordPress block editor using Heroicons](demo.gif)
+
+
+## Installation
 
 Download the zip file, and upload it into your WordPress plugins. Activate the plugin, and the block should be made available to use.
 
-![WordPress block editor using Heroicons](demo.gif)
+## Block Settings
+
+

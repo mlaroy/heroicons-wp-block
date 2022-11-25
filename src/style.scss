@@ -27,7 +27,9 @@
 
 	.components-button.is-secondary {
 		box-shadow: none;
-		padding: 20px 10px;
+		padding: 0;
+		width: 48px;
+		height: 48px;
 
 		&:hover {
 			box-shadow: none;
@@ -119,6 +121,8 @@
 
 
 #selected-icon {
-	display: inline-block;
-	width: 48px;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
 }

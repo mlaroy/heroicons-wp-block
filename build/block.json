@@ -3,16 +3,20 @@
   "apiVersion": 2,
   "name": "mikelaroy/heroicons",
   "version": "0.1.0",
-  "title": "Hero Icon",
+  "title": "Heroicons Block",
   "category": "common",
-  "icon": "shield",
-  "description": "An SVG from Hericons",
+  "description": "A Gutenberg block for SVGs from Hericons",
   "supports": {
     "html": false,
     "align": true,
+    "alignWide": false,
     "color": true,
     "anchor": true,
-    "backgroundColor": true
+    "backgroundColor": true,
+    "spacing": {
+      "margin": true,
+      "padding": true
+    }
   },
   "textdomain": "mike-heroicons",
   "editorScript": "file:./index.js",
