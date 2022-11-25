@@ -5,7 +5,17 @@
  */
 import { __ } from '@wordpress/i18n';
 
-import { Button, Modal, Flex, FlexItem, RadioControl, SearchControl } from '@wordpress/components';
+import {
+	Button,
+	Modal, Flex,
+	FlexItem,
+	RadioControl,
+	SearchControl,
+	RangeControl,
+	PanelBody,
+	Toolbar,
+	ToolbarButton
+} from '@wordpress/components';
 import { useState, useEffect, useRef } from '@wordpress/element';
 import { matchSorter } from 'match-sorter'
 
@@ -19,7 +29,7 @@ import { icons } from './icons.js'
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, InspectorControls, BlockControls } from '@wordpress/block-editor';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -38,7 +48,7 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit({ attributes: { svg, style }, setAttributes }) {
+export default function Edit({ attributes: { svg, iconStyle, borderRadius, style }, setAttributes }) {
 	const [ isOpen, setOpen ] = useState( false );
 	const [ searchTerm, setSearchTerm ] = useState('');
 	const [ selectedIcon, setSelectedIcon ] = useState(null);
@@ -52,7 +62,7 @@ export default function Edit({ attributes: { svg, style }, setAttributes }) {
 	}
 
 	useEffect(() => {
-		setAttributes( { style: style ? style : 'solid' } );
+		setAttributes( { iconStyle: iconStyle ? iconStyle : 'solid' } );
 	}, []);
 
 	const onChangeSelectedIcon = icon => {
@@ -61,7 +71,11 @@ export default function Edit({ attributes: { svg, style }, setAttributes }) {
 	};
 
 	const onChangeStyle = name => {
-		setAttributes( { style: name } );
+		setAttributes( { iconStyle: name } );
+	};
+
+	const setRadius = radius => {
+		setAttributes( { borderRadius: radius } );
 	};
 
 	const getallIcons = () => {
@@ -81,24 +95,28 @@ export default function Edit({ attributes: { svg, style }, setAttributes }) {
 
     }
 
-	return (
-		<div { ...useBlockProps() }>
-			{svg && (
-				<Button
-					label="Change icon"
-					variant="secondary"
-					onClick={openModal}
-					showTooltip={true}
-					>
-					<span id="selected-icon" dangerouslySetInnerHTML={{ __html: svg }}></span>
-				</Button>
-			)}
+	const blockProps = useBlockProps( {
+		style: {
+			borderRadius: borderRadius ? borderRadius + '%' : '0px',
+		}
+	});
+	console.log({ blockProps })
 
-			{!svg && <Button variant="primary" onClick={openModal}>
-				{ __( 'Choose Icon', 'heroicons' ) }
-            </Button>}
-            { isOpen && (
-                <Modal className="heroicons-modal" isFullScreen="true" title="Select your icons" onRequestClose={ () => setOpen( false ) }>
+	return (
+		<div>
+			<div className="heroicons-edit-container">
+				{!svg && <Button variant="link" onClick={openModal}>
+					{ __( 'Choose Icon', 'heroicons' ) }
+				</Button>}
+				<div { ...blockProps }>
+					{svg && <span
+						id="selected-icon"
+						dangerouslySetInnerHTML={{ __html: svg }}>
+					</span>}
+				</div>
+			</div>
+			{ isOpen && (
+				<Modal className="heroicons-modal" isFullScreen="true" title="Select your icons" onRequestClose={ () => setOpen( false ) }>
 					<Flex align="center" justify="flex-start" gap="2rem">
 						<FlexItem>
 							<SearchControl
@@ -111,7 +129,7 @@ export default function Edit({ attributes: { svg, style }, setAttributes }) {
 							<RadioControl
 								hideLabelFromVision={true}
 								label="Select style"
-								selected={ style }
+								selected={ iconStyle }
 								flexDirection="row"
 								options={ [
 									{ label: 'Solid', value: 'solid' },
@@ -148,8 +166,23 @@ export default function Edit({ attributes: { svg, style }, setAttributes }) {
 							);
 						})}
 					</div>
-                </Modal>
-            ) }
+				</Modal>
+			) }
+			<InspectorControls>
+				<PanelBody title="Heroicon Settings">
+					<RangeControl
+						label="Border Radius"
+						value={ borderRadius }
+						onChange={ ( value ) => setRadius( value ) }
+						initialPosition={ 0 }
+						min={ 0 }
+						max={ 100 }
+					/>
+				</PanelBody>
+			</InspectorControls>
+			<BlockControls>
+				<ToolbarButton label="Bold" text="Replace Heroicon" onClick={openModal} />
+			</BlockControls>
 		</div>
 	);
 }

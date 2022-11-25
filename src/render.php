@@ -6,11 +6,14 @@
  *
  *
  * @var array    $attributes         Block attributes.
- * @var string   $content            Block content.
  * @var WP_Block $block              Block instance.
  */
-
+$radius = ( isset( $attributes['borderRadius'] ) ) ? 'border-radius: '. $attributes['borderRadius'] . '%;' : '';
 ?>
-<div <?php echo get_block_wrapper_attributes(); ?>>
-	<?php echo $attributes['svg']; ?>
+<div>
+	<div <?php echo get_block_wrapper_attributes([
+		'style' => $radius
+	]); ?>>
+		<?php echo $attributes['svg']; ?>
+	</div>
 </div>

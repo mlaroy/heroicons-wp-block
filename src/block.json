@@ -14,7 +14,6 @@
 		"anchor": true,
 		"backgroundColor": true,
 		"spacing": {
-			"margin": true,
 			"padding": true
 		}
 	},
@@ -27,14 +26,26 @@
 		"svg": {
 		  "type" : "string"
 		},
+		"iconStyle": {
+		  "type" : "string"
+		},
 		"style": {
-			"type" : "string"
+			"type": "object",
+			"padding": "value",
+			"border-radius": "value"
+		},
+		"borderRadius": {
+			"type" : "number"
+		},
+		"padding": {
+			"type" : "number"
 		}
 	},
 	"example": {
 		"attributes":{
 		  "svg": "clipboard-document",
-		  "style": "solid"
+		  "style": "solid",
+		  "borderRadius": 5
 		}
 	}
 }
