@@ -23,8 +23,8 @@
 	"style": "file:./style-index.css",
 	"render": "file:./render.php",
 	"attributes": {
-		"svg": {
-		  "type" : "string"
+		"selectedIcon": {
+			"type": "object"
 		},
 		"iconStyle": {
 		  "type" : "string"
@@ -33,6 +33,9 @@
 			"type": "object",
 			"padding": "value",
 			"border-radius": "value"
+		},
+		"iconSize": {
+			"type" : "number"
 		},
 		"borderRadius": {
 			"type" : "number"

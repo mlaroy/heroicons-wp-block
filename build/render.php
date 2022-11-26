@@ -13,17 +13,22 @@ $radius = ( isset( $attributes['borderRadius'] ) ) ? 'border-radius: '. $attribu
 // $wrapper_attributes = get_block_wrapper_attributes();
 
 // echo '<pre>';
-// print_r( $wrapper_attributes );
+// print_r( $attributes );
 // echo '</pre>';
 
 
 
 ?>
+<style>
+	:root {
+		--heroicon-size: <?php echo $attributes['iconSize']; ?>px;
+	}
+</style>
 
-<div>
-	<div <?php echo get_block_wrapper_attributes([
+<div class="heroicon-template-container">
+	<span <?php echo get_block_wrapper_attributes([
 		'style' => $radius
 	]); ?>>
-		<?php echo $attributes['svg']; ?>
-	</div>
+		<?php echo $attributes['selectedIcon']['svg']; ?>
+	</span>
 </div>

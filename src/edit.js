@@ -7,16 +7,26 @@ import { __ } from '@wordpress/i18n';
 
 import {
 	Button,
-	Modal, Flex,
+	Modal,
+	Flex,
 	FlexItem,
 	RadioControl,
 	SearchControl,
 	RangeControl,
 	PanelBody,
 	Toolbar,
-	ToolbarButton
+	ToolbarButton,
+	ToolbarDropdownMenu,
 } from '@wordpress/components';
 import { useState, useEffect, useRef } from '@wordpress/element';
+import {
+    more,
+    starEmpty,
+	starFilled,
+	pencil,
+
+} from '@wordpress/icons';
+
 import { matchSorter } from 'match-sorter'
 
 import { tags } from './tags.js'
@@ -48,38 +58,60 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit({ attributes: { svg, iconStyle, borderRadius, style }, setAttributes }) {
+export default function Edit({
+		attributes: { selectedIcon, svg, iconStyle, borderRadius, iconSize, style },
+		setAttributes
+}) {
 	const [ isOpen, setOpen ] = useState( false );
 	const [ searchTerm, setSearchTerm ] = useState('');
-	const [ selectedIcon, setSelectedIcon ] = useState(null);
 	const searchEl = useRef(null);
 
 	const openModal = () => {
 		setOpen(true);
 		setTimeout(() => {
 			searchEl.current.focus()
-		}, 500);
+		}, 0);
 	}
 
 	useEffect(() => {
 		setAttributes( { iconStyle: iconStyle ? iconStyle : 'solid' } );
+		setAttributes( { iconSize: iconSize ? iconSize : 48 } );
 	}, []);
 
+
+	/**
+	 * We keep track of the object (selectedIcon) and the string (svg) separately
+	 * so that we can pass the string into the render template, and mange the object
+	 * here in the edit file, and change out the svg string when the iconStyle changes.
+	 */
 	const onChangeSelectedIcon = icon => {
-		setSelectedIcon(icon);
+		setAttributes( { selectedIcon: icon } )
 		setAttributes( { svg: icon.svg } );
 	};
 
-	const onChangeStyle = name => {
-		setAttributes( { iconStyle: name } );
+	const onChangeStyle = iconStyle => {
+		setAttributes( { iconStyle } );
+
+		/**
+		 * applies only after the first time an icon is selected.
+		 * It is possible to change the style while the modal is
+		 * open, in which case the selected icon is still null.
+		 */
+		if( selectedIcon ) {
+			onChangeSelectedIcon(icons[iconStyle].find(icon => icon.name === selectedIcon.name));
+		}
 	};
 
-	const setRadius = radius => {
-		setAttributes( { borderRadius: radius } );
+	const setIconSize = iconSize => {
+		setAttributes( { iconSize } );
+	};
+
+	const setRadius = borderRadius => {
+		setAttributes( { borderRadius } );
 	};
 
 	const getallIcons = () => {
-		return Array.from(icons[style]).map(icon => {
+		return Array.from(icons[iconStyle]).map(icon => {
 			return {
 				name: icon.name,
 				svg: icon.svg,
@@ -100,20 +132,24 @@ export default function Edit({ attributes: { svg, iconStyle, borderRadius, style
 			borderRadius: borderRadius ? borderRadius + '%' : '0px',
 		}
 	});
-	console.log({ blockProps })
 
 	return (
 		<div>
 			<div className="heroicons-edit-container">
-				{!svg && <Button variant="link" onClick={openModal}>
+				{!selectedIcon && <Button variant="link" onClick={openModal}>
 					{ __( 'Choose Icon', 'heroicons' ) }
 				</Button>}
-				<div { ...blockProps }>
-					{svg && <span
+				{/* <div   { ...blockProps }> */}
+					{selectedIcon && <span
+					{ ...blockProps }
+						style={{
+							width: iconSize + 'px',
+							height: iconSize + 'px',
+						}}
 						id="selected-icon"
-						dangerouslySetInnerHTML={{ __html: svg }}>
+						dangerouslySetInnerHTML={{ __html: selectedIcon.svg }}>
 					</span>}
-				</div>
+				{/* </div> */}
 			</div>
 			{ isOpen && (
 				<Modal className="heroicons-modal" isFullScreen="true" title="Select your icons" onRequestClose={ () => setOpen( false ) }>
@@ -154,7 +190,7 @@ export default function Edit({ attributes: { svg, iconStyle, borderRadius, style
 										>
 											<Flex align="center" justify="center" direction="column">
 												<FlexItem>
-													<span dangerouslySetInnerHTML={{__html: icon.svg}}></span>
+													<span  dangerouslySetInnerHTML={{__html: icon.svg}}></span>
 												</FlexItem>
 											</Flex>
 										</Button>
@@ -171,17 +207,45 @@ export default function Edit({ attributes: { svg, iconStyle, borderRadius, style
 			<InspectorControls>
 				<PanelBody title="Heroicon Settings">
 					<RangeControl
-						label="Border Radius"
+						label="Border Radius (%)"
 						value={ borderRadius }
 						onChange={ ( value ) => setRadius( value ) }
 						initialPosition={ 0 }
 						min={ 0 }
-						max={ 100 }
+						max={ 50 }
+					/>
+					<RangeControl
+						label="Icon size (px)"
+						value={ iconSize }
+						onChange={ ( value ) => setIconSize( value ) }
+						initialPosition={ 24 }
+						min={ 8 }
+						max={ 96 }
 					/>
 				</PanelBody>
 			</InspectorControls>
 			<BlockControls>
-				<ToolbarButton label="Bold" text="Replace Heroicon" onClick={openModal} />
+				<ToolbarButton label="Bold" text="Change icon" onClick={openModal} />
+				{/* <Toolbar label="Style"> */}
+					<ToolbarDropdownMenu
+						icon={ pencil }
+						label="Icon style"
+						controls={ [
+							{
+								title: 'Outline',
+								icon: starEmpty,
+								isDisabled: iconStyle === 'outline',
+								onClick: () =>  onChangeStyle( 'outline'),
+							},
+							{
+								title: 'Solid',
+								icon: starFilled,
+								isDisabled: iconStyle === 'solid',
+								onClick: () => onChangeStyle( 'solid'),
+							},
+						] }
+					/>
+				{/* </Toolbar> */}
 			</BlockControls>
 		</div>
 	);
