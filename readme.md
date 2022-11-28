@@ -23,11 +23,16 @@ Download the zip file, and upload it into your WordPress plugins. Activate the p
 - Alignment
 
 
+### Change icon colour
 ![Align icon with block settings](center-icon.gif)
 
+### Add padding around icon
 ![Add padding around icon](padding-icon.gif)
 
+### Change icon size and border radius
 ![Change icon size and border radius](size-radius.gif)
 
+
+### Select different icon
 ![Change to different icon with search](change-icon.gif)
 
