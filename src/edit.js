@@ -139,7 +139,7 @@ export default function Edit({
 				{!selectedIcon && <Button variant="link" onClick={openModal}>
 					{ __( 'Choose Icon', 'heroicons' ) }
 				</Button>}
-				{/* <div   { ...blockProps }> */}
+				<div   { ...blockProps }>
 					{selectedIcon && <span
 					{ ...blockProps }
 						style={{
@@ -149,7 +149,7 @@ export default function Edit({
 						id="selected-icon"
 						dangerouslySetInnerHTML={{ __html: selectedIcon.svg }}>
 					</span>}
-				{/* </div> */}
+				</div>
 			</div>
 			{ isOpen && (
 				<Modal className="heroicons-modal" isFullScreen="true" title="Select your icons" onRequestClose={ () => setOpen( false ) }>
@@ -225,7 +225,7 @@ export default function Edit({
 				</PanelBody>
 			</InspectorControls>
 			<BlockControls>
-				<ToolbarButton label="Bold" text="Change icon" onClick={openModal} />
+				<ToolbarButton text="Change icon" onClick={openModal} />
 				{/* <Toolbar label="Style"> */}
 					<ToolbarDropdownMenu
 						icon={ pencil }

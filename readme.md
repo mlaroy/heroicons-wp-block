@@ -6,7 +6,7 @@ Based on [Heroicons](https://github.com/tailwindlabs/heroicons) version 2.0.13, 
 
 Shout out to [Joey Faruggio](https://github.com/joseph-farruggio) for the inspiration  and collaboration.
 
-![WordPress block editor using Heroicons](demo.gif)
+![Select an icon from list in modal](select-icon.gif)
 
 
 ## Installation
@@ -15,4 +15,19 @@ Download the zip file, and upload it into your WordPress plugins. Activate the p
 
 ## Block Settings
 
+- Size
+- Padding
+- Border Radius
+- Colour
+- Background Colour
+- Alignment
+
+
+![Align icon with block settings](center-icon.gif)
+
+![Add padding around icon](padding-icon.gif)
+
+![Change icon size and border radius](size-radius.gif)
+
+![Change to different icon with search](change-icon.gif)
 
