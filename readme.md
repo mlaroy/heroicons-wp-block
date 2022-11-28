@@ -1,4 +1,4 @@
-# Heroincons for Gutenberg
+# Heroicons for Gutenberg
 
 Select a Heroicons SVG right in the block editor.
 
