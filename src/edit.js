@@ -121,10 +121,10 @@ export default function Edit({
 	}
 
 	const filteredIcons = () => {
-        const icons = getallIcons();
-        return searchTerm !== '' ? matchSorter(icons, searchTerm.replace(/\s+/, '-'), { keys: ['name', 'tags'] })
-        : icons;
-
+		const icons = getallIcons();
+		return searchTerm !== ''
+			? matchSorter(icons, searchTerm.replace(/\s+/, '-'), { keys: ['name', 'tags'] })
+			: icons;
     }
 
 	const blockProps = useBlockProps( {
@@ -226,26 +226,24 @@ export default function Edit({
 			</InspectorControls>
 			<BlockControls>
 				<ToolbarButton text="Change icon" onClick={openModal} />
-				{/* <Toolbar label="Style"> */}
-					<ToolbarDropdownMenu
-						icon={ pencil }
-						label="Icon style"
-						controls={ [
-							{
-								title: 'Outline',
-								icon: starEmpty,
-								isDisabled: iconStyle === 'outline',
-								onClick: () =>  onChangeStyle( 'outline'),
-							},
-							{
-								title: 'Solid',
-								icon: starFilled,
-								isDisabled: iconStyle === 'solid',
-								onClick: () => onChangeStyle( 'solid'),
-							},
-						] }
-					/>
-				{/* </Toolbar> */}
+				<ToolbarDropdownMenu
+					icon={ pencil }
+					label="Icon style"
+					controls={ [
+						{
+							title: 'Outline',
+							icon: starEmpty,
+							isDisabled: iconStyle === 'outline',
+							onClick: () =>  onChangeStyle( 'outline'),
+						},
+						{
+							title: 'Solid',
+							icon: starFilled,
+							isDisabled: iconStyle === 'solid',
+							onClick: () => onChangeStyle( 'solid'),
+						},
+					] }
+				/>
 			</BlockControls>
 		</div>
 	);
