@@ -2,8 +2,7 @@
 
 <?php
 /**
- * Example block markup
- *
+ * Block markup
  *
  * @var array    $attributes         Block attributes.
  * @var WP_Block $block              Block instance.

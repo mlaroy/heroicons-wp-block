@@ -1,11 +1,6 @@
 /**
- * The following styles get applied both on the front of your site
- * and in the editor.
- *
- * Replace them with your own styles or remove the file completely.
+ * The following styles come from the Heroicons plugin.
  */
-
-
 .heroicon-template-container {
 	display: flex;
 }
@@ -32,22 +27,6 @@
 		fill: none;
 	}
 
-	.components-button.is-secondary {
-		box-shadow: none;
-		padding: 0;
-		width: 48px;
-		height: 48px;
-		margin: 0 auto;
-		display: block;
-
-		&:hover {
-			box-shadow: none;
-			border: none;
-			outline: none;
-			background: #eee;
-		}
-	}
-
 	&.aligncenter {
 		margin: 0 auto;
 		justify-content: center;
@@ -60,10 +39,4 @@
 	&.alignleft {
 		justify-content: flex-start;
 	}
-}
-
-#selected-icon {
-	display: inline-flex;
-	justify-content: center;
-	align-items: center;
 }
