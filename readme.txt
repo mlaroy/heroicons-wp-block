@@ -1,4 +1,4 @@
-=== A Heroicons Block for Gutenberg ===
+=== A Heroicons Block ===
 Contributors: mlaroy
 Tags: svg, icons, heriocons, dashicons, font awesome
 Donate link: https://mikelaroy.ca/donate
