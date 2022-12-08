@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       A Heroicons Block for Gutenberg
  * Plugin URI:        https://github.com/mlaroy/heroicons-wp-block
- * Description:       A Gutenberg block for Hericons SVGs, an open source set of SVG icons by Steve Schoger.
+ * Description:       A Gutenberg block for Heroicons, an open source set of SVG icons at https://heroicons.com.
  * Requires at least: 6.1
  * Requires PHP:      7.0
  * Version:           0.1.0
