@@ -1,18 +1,18 @@
 <?php
 /**
- * Plugin Name:       Heroincons for Gutenberg
+ * Plugin Name:       Heroincons Block for Gutenberg
  * Plugin URI:        https://github.com/mlaroy/heroicons-wp-block
- * Description:       A Gutenberg block for SVGs from Hericons
+ * Description:       A Gutenberg block for Hericons SVGs
  * Requires at least: 6.1
  * Requires PHP:      7.0
  * Version:           0.1.0
  * Author:            Michael LaRoy
- * Author URI:        http://mikelaroy.ca
+ * Author URI:        http://mikelaroy.ca/
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       mlaroy-heroicons
+ * Text Domain:       heroicons-block
  *
- * @package           mlaroy-heroicons
+ * @package           heroicons-block
  */
 
 /**

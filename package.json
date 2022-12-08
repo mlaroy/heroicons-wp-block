@@ -1,7 +1,7 @@
 {
-	"name": "heroicons",
+	"name": "heroicons-block",
 	"version": "0.1.0",
-	"description": "An SVG from Hericons",
+	"description": "A Gutenberg block for Hericons SVGs",
 	"author": "Michael LaRoy",
 	"license": "GPL-2.0-or-later",
 	"main": "build/index.js",

@@ -5,19 +5,22 @@
   "version": "0.1.0",
   "title": "Heroicons Block",
   "category": "common",
-  "description": "A Gutenberg block for SVGs from Hericons",
+  "description": "A Gutenberg block for Hericons SVGs",
   "supports": {
     "html": false,
     "align": true,
     "alignWide": false,
-    "color": true,
+    "color": {
+      "text": true,
+      "background": true
+    },
     "anchor": true,
     "backgroundColor": true,
     "spacing": {
       "padding": true
     }
   },
-  "textdomain": "mike-heroicons",
+  "textdomain": "heroicons-block",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
   "style": "file:./style-index.css",
@@ -46,9 +49,13 @@
   },
   "example": {
     "attributes": {
-      "svg": "clipboard-document",
-      "style": "solid",
-      "borderRadius": 5
+      "selectedIcon": {
+        "svg": "clipboard-document"
+      },
+      "iconStyle": "solid",
+      "iconSize": 24,
+      "borderRadius": 5,
+      "padding": 8
     }
   }
 }

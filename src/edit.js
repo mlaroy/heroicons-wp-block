@@ -14,13 +14,11 @@ import {
 	SearchControl,
 	RangeControl,
 	PanelBody,
-	Toolbar,
 	ToolbarButton,
 	ToolbarDropdownMenu,
 } from '@wordpress/components';
 import { useState, useEffect, useRef } from '@wordpress/element';
 import {
-    more,
     starEmpty,
 	starFilled,
 	pencil,
@@ -137,11 +135,11 @@ export default function Edit({
 		<div>
 			<div className="heroicons-edit-container">
 				{!selectedIcon && <Button variant="link" onClick={openModal}>
-					{ __( 'Choose Icon', 'heroicons' ) }
+					{ __( 'Choose Icon', 'heroicons-block' ) }
 				</Button>}
 				<div   { ...blockProps }>
 					{selectedIcon && <span
-					{ ...blockProps }
+						{ ...blockProps }
 						style={{
 							width: iconSize + 'px',
 							height: iconSize + 'px',
@@ -152,7 +150,7 @@ export default function Edit({
 				</div>
 			</div>
 			{ isOpen && (
-				<Modal className="heroicons-modal" isFullScreen="true" title="Select your icons" onRequestClose={ () => setOpen( false ) }>
+				<Modal className="heroicons-modal" isFullScreen="true" title={ __( 'Select Heroicon', 'heroicons-block' ) } onRequestClose={ () => setOpen( false ) }>
 					<Flex align="center" justify="flex-start" gap="2rem">
 						<FlexItem>
 							<SearchControl
@@ -168,8 +166,8 @@ export default function Edit({
 								selected={ iconStyle }
 								flexDirection="row"
 								options={ [
-									{ label: 'Solid', value: 'solid' },
-									{ label: 'Outline', value: 'outline' },
+									{ label: __( 'Solid', 'heroicons-block' ), value: 'solid' },
+									{ label: __( 'Outline', 'heroicons-block' ) , value: 'outline' },
 								] }
 								onChange={ ( value ) => onChangeStyle( value ) }
 							/>
@@ -205,9 +203,9 @@ export default function Edit({
 				</Modal>
 			) }
 			<InspectorControls>
-				<PanelBody title="Heroicon Settings">
+				<PanelBody title={ __( 'Heroicon Settings', 'heroicons-block' ) }>
 					<RangeControl
-						label="Border Radius (%)"
+						label={ __( 'Border radius (%)', 'heroicons-block' ) }
 						value={ borderRadius }
 						onChange={ ( value ) => setRadius( value ) }
 						initialPosition={ 0 }
@@ -215,7 +213,7 @@ export default function Edit({
 						max={ 50 }
 					/>
 					<RangeControl
-						label="Icon size (px)"
+						label={ __( 'Icon size (px)', 'heroicons-block' ) }
 						value={ iconSize }
 						onChange={ ( value ) => setIconSize( value ) }
 						initialPosition={ 24 }
@@ -225,19 +223,19 @@ export default function Edit({
 				</PanelBody>
 			</InspectorControls>
 			<BlockControls>
-				<ToolbarButton text="Change icon" onClick={openModal} />
+				<ToolbarButton text={ __( 'Change icon', 'heroicons-block' ) } onClick={openModal} />
 				<ToolbarDropdownMenu
 					icon={ pencil }
 					label="Icon style"
 					controls={ [
 						{
-							title: 'Outline',
+							title: __( 'Outline', 'heroicons-block' ),
 							icon: starEmpty,
 							isDisabled: iconStyle === 'outline',
 							onClick: () =>  onChangeStyle( 'outline'),
 						},
 						{
-							title: 'Solid',
+							title: __( 'Solid', 'heroicons-block' ),
 							icon: starFilled,
 							isDisabled: iconStyle === 'solid',
 							onClick: () => onChangeStyle( 'solid'),
