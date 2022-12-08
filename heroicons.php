@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       A Heroicons Block
+ * Plugin Name:       Heroicons Block
  * Plugin URI:        https://github.com/mlaroy/heroicons-wp-block
  * Description:       A Gutenberg block for Heroicons, an open source set of SVG icons at https://heroicons.com.
  * Requires at least: 6.1

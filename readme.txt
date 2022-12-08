@@ -1,4 +1,4 @@
-=== A Heroicons Block ===
+=== Heroicons Block ===
 Contributors: mlaroy
 Tags: svg, icons, heriocons, dashicons, font awesome
 Donate link: https://mikelaroy.ca/donate
