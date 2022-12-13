@@ -11,6 +11,10 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 A Gutenberg block for Heroicons, an open source set of SVG icons at https://heroicons.com.
 
+
 == Installation ==
 1. Upload \"test-plugin.php\" to the \"/wp-content/plugins/\" directory.
 2. Activate the plugin through the \"Plugins\" menu in WordPress.
+
+
+⚠️ Note: This is not an offical plugin from Tailwind Labs or Steve Schoger.

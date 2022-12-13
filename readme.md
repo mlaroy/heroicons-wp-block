@@ -34,3 +34,8 @@ Download the zip file, and upload it into your WordPress plugins. Activate the p
 ### Select different icon
 ![Change to different icon with search](change-icon.gif)
 
+
+
+---
+
+<small>⚠️ This is not an offical plugin from Tailwind Labs or Steve Schoger.</small>
