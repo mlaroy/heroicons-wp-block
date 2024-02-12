@@ -5,7 +5,8 @@
  * Description:       A Gutenberg block for Heroicons, an open source set of SVG icons at https://heroicons.com.
  * Requires at least: 6.1
  * Requires PHP:      7.0
- * Version:           0.1.0
+ * Version:           1.0.0
+ * Tested up to:      6.4
  * Author:            Michael LaRoy
  * Author URI:        http://mikelaroy.ca/
  * License:           GPL-2.0-or-later
