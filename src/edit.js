@@ -22,6 +22,7 @@ import {
     starEmpty,
 	starFilled,
 	pencil,
+	search
 
 } from '@wordpress/icons';
 
@@ -120,6 +121,7 @@ export default function Edit({
 
 	const filteredIcons = () => {
 		const icons = getallIcons();
+		console.log({ icons })
 		return searchTerm !== ''
 			? matchSorter(icons, searchTerm.replace(/\s+/, '-'), { keys: ['name', 'tags'] })
 			: icons;
@@ -168,6 +170,8 @@ export default function Edit({
 								options={ [
 									{ label: __( 'Solid', 'heroicons-block' ), value: 'solid' },
 									{ label: __( 'Outline', 'heroicons-block' ) , value: 'outline' },
+									{ label: __( 'Mini', 'heroicons-block' ) , value: 'mini' },
+									{ label: __( 'Micro', 'heroicons-block' ) , value: 'micro' },
 								] }
 								onChange={ ( value ) => onChangeStyle( value ) }
 							/>
@@ -240,6 +244,19 @@ export default function Edit({
 							isDisabled: iconStyle === 'solid',
 							onClick: () => onChangeStyle( 'solid'),
 						},
+						{
+							title: __( 'Mini', 'heroicons-block' ),
+							icon: search,
+							isDisabled: iconStyle === 'mini',
+							onClick: () => onChangeStyle( 'mini'),
+						},
+						{
+							title: __( 'Micro', 'heroicons-block' ),
+							icon: search,
+							isDisabled: iconStyle === 'micro',
+							onClick: () => onChangeStyle( 'micro'),
+						},
+
 					] }
 				/>
 			</BlockControls>

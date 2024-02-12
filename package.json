@@ -1,6 +1,6 @@
 {
 	"name": "svg-heroicons-block",
-	"version": "0.1.0",
+	"version": "1.0.0",
 	"description": "A Gutenberg block for Hericons SVGs",
 	"author": "Michael LaRoy",
 	"license": "GPL-2.0-or-later",
