@@ -4,6 +4,10 @@ Select a Heroicons SVG right in the block editor.
 
 Based on [Heroicons](https://github.com/tailwindlabs/heroicons) version 2.0.13, this block provides options to use the Solid or Outline variants of these SVG icons. In addition, you can change the size, colour, and add a background colour along with padding and border radius around the icon.
 
+### 2024 update
+
+Heroicons 2.1.1 came out with the Mini and Micro versions, and the 1.0 version of this plugin now includes these as well.
+
 ![Select an icon from list in modal](select-icon.gif)
 
 
