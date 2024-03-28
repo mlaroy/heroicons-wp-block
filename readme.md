@@ -1,3 +1,5 @@
+![Heroicons block banner](./assets/banner-772x-225.png)
+
 # Heroicons Block for Gutenberg
 
 Select a Heroicons SVG right in the block editor.
