@@ -9,9 +9,6 @@ Stable tag: 1.0.0
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-== Banner ==
-Banner: https://plugins.svn.com/svg-heroicons-block/assets/banner-772x225.png
-
 A Gutenberg block for Heroicons, an open source set of SVG icons at https://heroicons.com.
 
 ⚠️ Note: This is not an offical plugin from Tailwind Labs or Steve Schoger.

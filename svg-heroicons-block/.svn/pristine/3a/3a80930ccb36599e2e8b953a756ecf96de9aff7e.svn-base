@@ -1,0 +1,61 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "mikelaroy/heroicons",
+  "version": "1.0.0",
+  "title": "Heroicons Block",
+  "category": "common",
+  "description": "A Gutenberg block for Hericons SVGs",
+  "supports": {
+    "html": false,
+    "align": true,
+    "alignWide": false,
+    "color": {
+      "text": true,
+      "background": true
+    },
+    "anchor": true,
+    "backgroundColor": true,
+    "spacing": {
+      "padding": true
+    }
+  },
+  "textdomain": "heroicons-block",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php",
+  "attributes": {
+    "selectedIcon": {
+      "type": "object"
+    },
+    "iconStyle": {
+      "type": "string"
+    },
+    "style": {
+      "type": "object",
+      "padding": "value",
+      "border-radius": "value"
+    },
+    "iconSize": {
+      "type": "number"
+    },
+    "borderRadius": {
+      "type": "number"
+    },
+    "padding": {
+      "type": "number"
+    }
+  },
+  "example": {
+    "attributes": {
+      "selectedIcon": {
+        "svg": "clipboard-document"
+      },
+      "iconStyle": "solid",
+      "iconSize": 24,
+      "borderRadius": 5,
+      "padding": 8
+    }
+  }
+}

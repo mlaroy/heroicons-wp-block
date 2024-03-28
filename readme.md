@@ -1,4 +1,4 @@
-![Heroicons block banner](./assets/banner-772x-225.png)
+![Heroicons block banner](./assets/banner-772x225.png)
 
 # Heroicons Block for Gutenberg
 
