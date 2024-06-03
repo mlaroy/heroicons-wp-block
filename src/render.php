@@ -37,15 +37,9 @@ $svg_allowed = array(
 );
 ?>
 
-<style>
-	:root {
-		--heroicon-size: <?php echo esc_html( $attributes['iconSize'] ); ?>px;
-	}
-</style>
-
 <div class="heroicon-template-container">
 	<span <?php echo get_block_wrapper_attributes([
-		'style' => esc_attr( $radius )
+		'style' => '--heroicon-size: ' . esc_attr($attributes['iconSize']) . 'px;'.esc_attr( $radius )
 	]); ?>>
 		<?php echo wp_kses( $attributes['selectedIcon']['svg'], $svg_allowed ); ?>
 	</span>
